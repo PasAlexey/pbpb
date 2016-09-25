@@ -1,0 +1,348 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head >
+	<style type="text/css">
+		@font-face {
+    		font-family: Arial;
+    		src: url('css/ARIAL.TTF');
+    		}
+    		</style>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Пiдтвердження заявки</title>
+  		<link rel="stylesheet" type="text/css" href="css/akkordeon.css">
+  		<link rel="stylesheet" type="text/css" href="css/selfie_pb.css">  
+
+</head>
+<body>
+
+<div class="content">
+    <img class="img_point_top" src="img/point.png">
+    <div class="header">
+        <div class="header_left"> 
+            <img src="img/logo.png">
+        </div>  
+        <div class="header_right">
+            <h1>Сервiс пiдтвердження</h1>
+        </div>
+        <img class="img_point_bot" src="img/point.png"> 
+    </div>
+    <div class="inner">
+        <p class="text_cogr">Шановний Клiенте!</p><p class="text">Нам необхiдно пересвiдчитися, що заявка сформована саме Вами. Будь ласка, виконайте три простих кроки:</p>    
+        
+        <div id="tPhotoHidden" style="visibility: hidden;" ></div>
+        
+        <section class="ac-container">
+        <div>
+                <input class="label_input" id="ac-1" name="accordion-1" type="checkbox" checked />
+                <label for="ac-1"><img class="label_img" src="img/phone_n.png"/> Крок 1. Вкажiть Ваш фiнансовий номер телефону</label>
+                <article class="ac-small">
+                    <div class="div_phone">
+                        <p class="div_phone_p" id="phone_p">Телефон у форматi '+380551110022' :</p>
+                    </div>
+                    <div class="div_phone_input" id="div_phone_input">
+                        <p><input type='text' id="phone" name="num_phone" class="input_number" maxlength="16" value=''/>
+                        </p>
+                    </div>
+                    <div class="div_message_phone">
+                        <p id="message_phone_p"></p>
+                    </div>
+                    <div id="check_phone" class="div_check_phone">
+                        <p><img  src="img/check.png"/></p>
+                    </div>
+                    <div id="check_phone_ok" class="div_check_phone" style="display: none;">
+                        <p><img  src="img/check_ok.png"/></p>
+                    </div>
+
+                </article>
+            </div>
+            <div>
+                <input class="label_input" id="ac-2" name="accordion-1" type="checkbox" checked />
+                <label for="ac-2"><img style="width: 16px;" src="img/camera.png"/> Крок 2. Сфотографуйтеся на веб-камеру ноутбука, компьютера або планшета</label>
+                <article class="ac-medium">
+                    <div style="display:inline-block; float:left; width:290px; height:380px; vertical-align:middle;">
+                        <p style="margin: 8px 0"><p/>
+                        <p style="margin-bottom: -30px;text-align:center; margin-right:-20px;"><img style="filter: alpha(Opacity=75); opacity: 0.75;" src="img/example.png"/></p>
+                        <p id="photo_inst" style="margin-bottom: -20px; margin-right:-20px;">Згiдно малюнка, вiзьмiть в руку Вашу платiжну картку. Зробiть фото таким чином, щоб у кадр одночасно потрапили карта і Ваше обличчя. </p>
+                        <p style="text-align:center; margin: 25px -20px 0px 100px"><img style="filter: alpha(Opacity=65); opacity: 0.65;" src="img/arrows_left.png"/></p>
+                    </div>
+                    
+                    <div style="display:inline-block; float:left; width:400px;text-align:center;">
+                        <div id="example" class="plugin"></div>
+                        <div id="gallery" class="plugin"></div>
+                            <input type="button" id="tPhotoBtn" onClick="$('#tPhotoHidden').click(); $('#ph_type').val('Y');" class="button button_disable_true"  value='Сфотографуватися'>
+                            <input type="button" id="tPhoto2" onclick="rePhoto(); $('#ph_type').val('N');" class="button"  value='Спробувати ще раз'>
+                    </div>
+                    
+                    <div style="display:inline-block; float:left; width:260px">
+                        <p></p>
+                        <p style="margin-bottom: -30px;text-align:center"><img style="filter: alpha(Opacity=75); opacity: 0.75;" src="img/example2.png"/></p>
+                        <p style="margin: 15px 0px -20px -20px;">Не вдалося сфотографуватися за допомогою цієї форми? - Зателефонуйте нам на номер 3700 (безкоштовно з мобільних на території України) або +38(056)7161131 (із-за кордону). </p>
+                        
+                    </div>
+                    <div id="check_photo" style="display:inline-block; float:left; width:22px; height: 100%; line-height: 382px; ">
+                         <img style="width: 32px;margin:0 0 0 0px" src="img/check.png"/> 
+                    </div>
+                        <div id="check_photo_ok" style="display:none; float:left; width:22px; height: 100%; line-height: 382px; ">
+                         <img style="width: 32px;margin:0 0 0 0px;" src="img/check_ok.png"/> 
+                    </div>
+                </article>
+            </div>
+            <div>
+                <input class="label_input" id="ac-3" name="accordion-1" type="checkbox" checked />
+                <label for="ac-3"><img style="width: 16px;" src="img/send.png"/> Крок 3. Вiдправте нам цей фотознiмок</label>
+                <article class="ac-send">
+                    <div style="display:inline-block; float:left; width:1000px;text-align:center;">
+                        <p>Натиснувши 'Вiдправити', я погоджуюсь на обробку завантажених персональних даних ПриватБанком</p>
+                        <input type="button" id="buttonSend" onclick="send()" class="button button_disable_true" style="margin-right:20px;" value='Вiдправити'>
+                    </div>
+                </article>
+            </div>
+        </section>
+        </div>
+    </div>
+
+     <!-- Задний прозрачный фон-->
+  <div onclick="show('none')" id="wrap"></div>
+  
+     <!-- Само окно-->
+   <div id="window" align="center">
+   <div>
+    <img id="erorrPicW" src="img/alert.png"/>
+    <br><div id="erorrMsqW"></div><br>
+     <div onclick="show('none')" style="margin: 5px 0 0 110px;  width: 25px; display:block; float:left"> <input type="image"  src="img/strelka.png" />
+     </div> 
+     <div style=" font-size:27px; display:block; float:left">
+     <a class="but" onclick="show('none')">ОК</a>
+     </div>
+     <div style="float:none;"></div>
+     </div> 
+   </div>
+   
+   <input type="hidden" id="ph_type" />
+   
+   <!-- Gif progress-->
+  <div style="display:none;" id="wrap_prog"></div>
+  
+   <div  style="display:none;" id="window_prog">
+    <div align="center">
+	    <br><img src="img/progress.gif"/>  
+    	<br><br>Відправляємо фото...<br>   
+    </div>
+   </div>
+   
+<img style="width:100%; height:1px;" src="img/point.png">
+<div class="footer" >
+    <span>© 2016 ПриватБанк</span>
+</div>
+<img style="width:100%; height:1px;" src="img/point.png">   
+</body>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/Photobooth.js"></script>
+		<script type="text/javascript" src="js/ResizeHandle.js"></script>
+		<script type="text/javascript" src="js/Drag.js"></script>
+		 <script type="text/javascript" src="js/Tools.js"></script> 
+		<script type="text/javascript" src="js/jqueryIntegration.js"></script>
+		<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgAEV1RTGwABU1NSAAQ="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:18,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:18,2:19,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:19,2:18,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:19,2:18,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:19,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){p.proto="https"===d.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=p.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,c=s.document,u="addEventListener",f="attachEvent",d=(""+location).split("?")[0],p=e.exports={offset:i(),origin:d,features:{}};c[u]?(c[u]("DOMContentLoaded",o,!1),s[u]("load",n,!1)):(c[f]("onreadystatechange",r),s[f]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],18:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],19:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:18,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+		 
+<script type="text/javascript">
+
+$(function() {
+  $('#div_phone_input').on('keydown', '#phone', function(e){
+	  -1!==$.inArray(e.keyCode,[107,46,8,9,27,13,110,190])||/61|65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||(e.shiftKey&&61)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||
+			  48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault();
+  });
+})
+
+var photoValid = false;
+var phoneValid = false;
+
+(function () {
+    var oldVal;
+    $('#phone').on('change textInput input', function () {
+        var val = this.value;
+        if (val !== oldVal) {
+        	setStatusPhoneUnknown();
+            oldVal = val;
+            if(val.length >= 12){
+            	checkPhone();
+            }	 
+        }
+    });
+}());
+
+$( '#phone' ).focusout(function() {
+	checkPhone();
+})
+
+function setStatusPhoneOk(){
+    $("#message_phone_p").html("");
+    $("#check_phone_ok").show();
+    $("#check_phone").hide();
+    phoneValid = true;
+}
+
+function setStatusPhoneError(){
+    $("#message_phone_p").html("Введіть телефон у форматі: «+» і щонайменше 11 цифр!");
+    $("#check_phone_ok").hide();
+    $("#check_phone").show();
+    phoneValid = false;
+    hideSend();
+}
+
+function setStatusPhoneUnknown(){
+	$("#message_phone_p").html("");
+	$("#check_phone_ok").hide();
+	$("#check_phone").show();
+	phoneValid = false;
+	hideSend();
+}
+
+function showSend(){
+	$("#buttonSend").removeClass("button_disable_true");
+	$("#buttonSend").css("cursor","pointer");
+}
+
+function hideSend(){
+	 $("#buttonSend").addClass("button_disable_true");
+	 $("#buttonSend").css("cursor","default");
+}
+
+function checkPhone(){
+	var phone = $("#phone").val();
+	var isMatch = /^\+\d{11,20}$/.test(phone);
+	if(isMatch){
+		setStatusPhoneOk();
+        if(photoValid && phoneValid){
+        	showSend();
+        }
+	} else{
+		setStatusPhoneError();
+	}
+}
+
+function checkPhoneOk(){
+    var phone = $("#phone").val();
+    var isMatch = /^\+\d{11,20}$/.test(phone);
+    if(isMatch){
+        setStatusPhoneOk();
+        if(photoValid && phoneValid){
+            showSend();
+        }
+    } 
+}
+	
+    $("#tPhotoBtn").prop("disabled", true);
+    $("#buttonSend").css("cursor","default");
+	if($("#phone").val() == '') {
+		$("#phone").val('+380');
+	} else if($("#phone").val().length > 0) {
+		checkPhoneOk();
+	}
+	
+	$( "#gallery" ).hide();
+	$( '#tPhoto2' ).hide();
+	
+	$( '#example' ).photobooth().on( "image", function( event, dataUrl ){
+		$( "#gallery" ).show().html( '<img id="imgPrv" class="plugin"  src="' + dataUrl + '" ></div>');
+		$( '#example' ).visibility="collapse";
+		$( '#example' ).hide();
+		$( '#tPhotoBtn' ).hide();
+		$( '#tPhoto2' ).show();
+		$( '#check_photo_ok' ).show();
+		$( '#check_photo' ).hide();
+		photoValid = true;
+		$("#photo_inst").css("color","#777");
+		if(photoValid && phoneValid){
+			showSend();
+		}
+	});
+
+function rePhoto() {
+	$( "#gallery" ).hide();
+	hideSend();
+	$( '#tPhoto2' ).hide();
+	$( '#tPhotoBtn' ).show();
+	$( '#example' ).show();
+	$( '#check_photo_ok' ).hide();
+    $( '#check_photo' ).show();
+    photoValid = false;
+}
+
+function send(){
+	dataUrl = $("#imgPrv").attr('src');
+	phoneNum = $("#phone").val();
+    checkPhone();
+    if(!photoValid || !phoneValid){
+        if(!photoValid){
+        	$("#photo_inst").css("color","red");
+        }
+        return;
+    }
+    
+	hideSend();
+	show_prog('block');
+	$.ajax({
+		type : "POST",
+		url : "getPic",
+		contentType: 'application/json',
+		dataType: 'text',
+		data : '{ "url":"'+dataUrl+'", "phone":"'+$("#phone").val()+'","isFromCamera":"'+$("#ph_type").val()+'","hash":"a217bb4f552b9f08ed2a4f7d7345506c2a5b900775271bb9e79c014ece81500a","hash2":"afdb2b7e88629c710e935c58ff33e827b60012d1c1f7f1c4bfced497e4375735"}',				
+		success: function(data, textStatus, jqXHR ){
+			if(data=='ok') showGood('block',"Успішно відправлено! Протягом декількох хвилин ваше фото буде перевірено");
+			else if(data=='error') show('block',"Виникла помилка під час передачі фото. Зателефонуйте на номер 3700");
+			else if(data=='errorSize15') show('block',"Перевищено розмір фото 15 Мб. Додайте файл меншого розміру!");
+			else if(data=='errorPhone') show('block',"Введіть телефон у правильному форматі: «+» і не менше ніж 11 цифр ");
+			else show('block',"Виникла помилка під час передачі фото. Зателефонуйте на номер 3700");
+			showSend();		
+			show_prog('none');
+		},
+  error: function (xhr, textStatus, errorThrown) {
+	  showSend();
+	  show_prog('none');
+	  show('block',"Виникла помилка під час передачі фото. Зателефонуйте на номер 3700");
+	}
+  });
+}
+ function phonenumber(inputtxt){  
+	  var phoneno = /^\+?(([0-9]{11,15}))$/;  
+	  if(inputtxt.match(phoneno))
+	        {  
+	      return true;  
+	        }  
+	      else  
+	        {  
+	    	  show('block',"Введіть телефон у правильному форматі: «+» і не менше ніж 11 цифр ");  
+	        return false;  
+	        }  
+	} 
+ function show_prog(state){
+     document.getElementById('window_prog').style.display = state;   
+     document.getElementById('wrap_prog').style.display = state;    
+   }
+</script>
+<script src="js/akkordeon.js" type="text/javascript"></script>
+<script type="text/javascript">
+     //Функция показа
+   function show(state,errmsq){
+	   document.getElementById('erorrMsqW').innerHTML = errmsq;
+	   $('#erorrPicW').attr("src","img/alert.png");
+	   
+     document.getElementById('window').style.display = state;   
+     document.getElementById('wrap').style.display = state;
+     
+   }
+   function showGood(state,errmsq){
+	   document.getElementById('erorrMsqW').innerHTML = errmsq;
+	   $('#erorrPicW').attr("src","img/ok.png");
+	   
+     document.getElementById('window').style.display = state;   
+     document.getElementById('wrap').style.display = state;
+     
+   }
+
+  </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-3.newrelic.com","queueTime":1,"licenseKey":"42869b6ed3","agent":"js-agent.newrelic.com/nr-476.min.js","transactionName":"b1QHMUtVDRdSW0YKXVYeIxBXVxcNXFYdCEdVUEsETUACB1tVVw1GSx8TDFxDEF5BWUU8VFFdAA==","applicationID":"3172075","errorBeacon":"bam.nr-data.net","applicationTime":26}</script></body>
+</html>
